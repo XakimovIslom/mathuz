@@ -218,5 +218,5 @@ MATHJAX_CONFIG_DATA = {
 
 MATHJAX_CONFIG_FILE = "TeX-AMS-MML_HTMLorMML"
 
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ["https://web-production-1081.up.railway.app"]
+
+CSRF_TRUSTED_ORIGINS = ["https://*.web-production-1081.up.railway.app"]
