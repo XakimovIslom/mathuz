@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <title>Mathuz</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <hgroup>
+                <h1 class="site-title"><a href="/">Mathuz Blog</a></h1>
+            </hgroup>
+        </header>
+        <!----- navigation  ----->
+        <nav>
+            <ul class="main-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'about-me' %}">About</a></li>
+                <form action="{% url 'post-list' %}" method="get" class="search-form" style="text-align: right;">
+                    <div class="form-group">
+                        <span class="icon fa fa-search"></span>
+                        
+                        <input type="text" name="q" style="right: auto; margin-top: 5px; margin-bottom: 3px;" class="form-control" id="s" placeholder="Type a keyword and hit enter">
+                    </div>
+                </form>
+                <li></li>
+            </ul>
+        </nav>
+        <!----- navigation end  ----->
+
+        <!------ section----------->
+        <section class="content">
+            <article class="post">
+                <h1 class="post-title">About Me</h1>
+                {% for i in abouts %}
+                <div class="entry post-content">
+                    <p>{{ i.content }}</p>
+                </div>
+                {% endfor %}
+            </article>
+        </section>
+        <!------ section end ----------->
+
+        <!-----------sidebar ----------->
+        <aside class="sidebar">
+            <ul class="widget-sidebar">
+                <li class="widget widget_categories">
+                    <h3 class="widget-title">Connect with me</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <!-----------sidebar end ----------->
+
+        <!----------footer---------->
+        <footer>
+            <div class="footer-left">&copy; Mathuz</div>
+            <li class="widget widget_categories">
+                <h3 class="widget-title">Connect with me</h3>
+                <ol>
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                </ol>
+            </li>
+        </footer>
+        <!----------footer end ---------->
+    </div>
+</body>
+
+</html>
